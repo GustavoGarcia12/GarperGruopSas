@@ -244,10 +244,30 @@ function App() {
           </div>
         </div>
       </section>
-
-      
-
-            
+      {/* 5. BANNER LLAMADO A LA ACCIÓN (CTA) */}
+      <section className="bg-[#07101f] text-white py-16 px-10 border-t border-b border-gray-800">
+        <div className="max-w-7xl mx-auto flex flex-col lg:flex-row justify-between items-center gap-10">
+          
+          <div className="max-w-2xl text-center lg:text-left">
+            <h2 className="text-3xl md:text-4xl font-bold mb-4 tracking-tight">
+              ¿Tienes una licitación en 15 días? Llegas a tiempo.
+            </h2>
+            <p className="text-gray-400 text-lg">
+              Diagnóstico exprés de bases, consorcio y riesgos OSCE en 48 horas.
+            </p>
+          </div>
+          
+          <div className="flex flex-col sm:flex-row gap-4 shrink-0 w-full sm:w-auto">
+            <button className="bg-white text-[#07101f] px-8 py-3.5 rounded-lg font-bold hover:bg-gray-200 transition shadow-lg w-full sm:w-auto">
+              Agendar Consulta
+            </button>
+            <button className="px-8 py-3.5 rounded-lg border border-gray-600 font-bold hover:bg-gray-800 transition w-full sm:w-auto">
+              Hablar con un socio
+            </button>
+          </div>
+          
+        </div>
+      </section>
     </div>
   );
 }
