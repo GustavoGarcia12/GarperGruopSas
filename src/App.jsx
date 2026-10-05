@@ -268,6 +268,178 @@ function App() {
           
         </div>
       </section>
+      {/* 6. SECCIÓN DE PLANES Y HONORARIOS */}
+      <section className="bg-gray-50 text-[#07101f] py-24 px-10">
+        <div className="max-w-7xl mx-auto">
+          
+          {/* Encabezado de precios */}
+          <div className="text-center mb-16">
+            <p className="text-blue-700 font-bold text-xs tracking-[0.2em] uppercase mb-4">Planes</p>
+            <h2 className="text-4xl md:text-5xl font-bold leading-[1.1] tracking-tight mb-6">
+              Honorarios claros, sin letra pequeña.
+            </h2>
+            <p className="text-gray-500 max-w-2xl mx-auto text-lg">
+              Suscripción mensual sin permanencia. Cancela cuando quieras, conserva tus expedientes.
+            </p>
+          </div>
+
+          {/* Tarjetas de Precios */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-start max-w-5xl mx-auto">
+            
+            {/* Plan Básico */}
+            <div className="bg-white border border-gray-100 rounded-3xl p-8 shadow-sm hover:shadow-xl transition-all">
+              <h3 className="text-xs font-bold tracking-[0.1em] uppercase text-gray-500 mb-4">Básico</h3>
+              <div className="mb-4">
+                <span className="text-4xl font-bold">$ 890.000</span>
+                <span className="text-gray-400 text-sm"> / mes</span>
+              </div>
+              <p className="text-sm text-gray-500 mb-8 h-10">Para emprendedores y pymes que inician su formalización.</p>
+              <button className="w-full bg-[#07101f] text-white font-bold py-3.5 rounded-xl hover:bg-gray-800 transition mb-8">
+                Elegir Básico
+              </button>
+              <ul className="space-y-4 text-sm font-medium text-gray-700">
+                <li className="flex items-start gap-3"><svg className="w-5 h-5 text-blue-600 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path></svg> 2 consultas legales al mes</li>
+                <li className="flex items-start gap-3"><svg className="w-5 h-5 text-blue-600 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path></svg> Revisión de 4 contratos</li>
+                <li className="flex items-start gap-3"><svg className="w-5 h-5 text-blue-600 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path></svg> Constitución de empresa</li>
+                <li className="flex items-start gap-3"><svg className="w-5 h-5 text-blue-600 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path></svg> Soporte por correo 48h</li>
+              </ul>
+            </div>
+
+            {/* Plan Empresarial (Destacado) */}
+            <div className="bg-[#07101f] text-white rounded-3xl p-8 shadow-2xl relative transform md:-translate-y-4 border border-gray-800">
+              <div className="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-blue-600 text-white text-xs font-bold px-4 py-1.5 rounded-full tracking-wide">
+                Más solicitado
+              </div>
+              <h3 className="text-xs font-bold tracking-[0.1em] uppercase text-gray-400 mb-4 mt-2">Empresarial</h3>
+              <div className="mb-4">
+                <span className="text-4xl font-bold">$ 2.490.000</span>
+                <span className="text-gray-400 text-sm"> / mes</span>
+              </div>
+              <p className="text-sm text-gray-400 mb-8 h-10">Para empresas en crecimiento y contratistas del Estado.</p>
+              <button className="w-full bg-white text-[#07101f] font-bold py-3.5 rounded-xl hover:bg-gray-200 transition mb-8">
+                Agendar Consulta
+              </button>
+              <ul className="space-y-4 text-sm font-medium text-gray-300">
+                <li className="flex items-start gap-3"><svg className="w-5 h-5 text-blue-500 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path></svg> Consultas ilimitadas</li>
+                <li className="flex items-start gap-3"><svg className="w-5 h-5 text-blue-500 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path></svg> Licitaciones y OSCE integral</li>
+                <li className="flex items-start gap-3"><svg className="w-5 h-5 text-blue-500 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path></svg> Auditoría laboral anual</li>
+                <li className="flex items-start gap-3"><svg className="w-5 h-5 text-blue-500 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path></svg> Abogado in-house 2 días/sem</li>
+                <li className="flex items-start gap-3"><svg className="w-5 h-5 text-blue-500 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path></svg> Atención prioritaria 12h</li>
+              </ul>
+            </div>
+
+            {/* Plan Corporativo */}
+            <div className="bg-white border border-gray-100 rounded-3xl p-8 shadow-sm hover:shadow-xl transition-all">
+              <h3 className="text-xs font-bold tracking-[0.1em] uppercase text-gray-500 mb-4">Corporativo</h3>
+              <div className="mb-4">
+                <span className="text-4xl font-bold">A medida</span>
+              </div>
+              <p className="text-sm text-gray-500 mb-8 h-10">Para corporaciones y grupos con operaciones multisector.</p>
+              <button className="w-full bg-[#07101f] text-white font-bold py-3.5 rounded-xl hover:bg-gray-800 transition mb-8">
+                Contactar socio
+              </button>
+              <ul className="space-y-4 text-sm font-medium text-gray-700">
+                <li className="flex items-start gap-3"><svg className="w-5 h-5 text-blue-600 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path></svg> Mesa legal dedicada 24/7</li>
+                <li className="flex items-start gap-3"><svg className="w-5 h-5 text-blue-600 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path></svg> M&A y reestructuración</li>
+                <li className="flex items-start gap-3"><svg className="w-5 h-5 text-blue-600 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path></svg> Arbitrajes y contingencias</li>
+                <li className="flex items-start gap-3"><svg className="w-5 h-5 text-blue-600 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path></svg> Gestión RRHH tercerizada</li>
+              </ul>
+            </div>
+          </div>
+
+          {/* Garantías inferiores */}
+          <div className="flex flex-wrap justify-center gap-8 mt-16 text-sm font-semibold text-gray-500">
+            <div className="flex items-center gap-2">
+              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
+              Garantía de 30 días
+            </div>
+            <div className="flex items-center gap-2">
+              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
+              Facturación electrónica
+            </div>
+            <div className="flex items-center gap-2">
+              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path></svg>
+              Secreto profesional
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 7. FOOTER (Pie de página) */}
+      <footer className="bg-[#07101f] text-gray-400 py-16 px-10 border-t border-gray-800">
+        <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
+          
+          {/* Logo y descripción */}
+          <div>
+            <div className="flex items-center gap-3 mb-6">
+              <div className="w-8 h-8 bg-white text-[#07101f] rounded-lg font-bold flex items-center justify-center text-lg">
+                G
+              </div>
+              <h1 className="text-xl font-bold tracking-wide text-white">Garper Group</h1>
+            </div>
+            <p className="text-sm mb-6 leading-relaxed">
+              Firma premium de asesoría legal, contratación estatal y consultoría en RR.HH. Desde 2005.
+            </p>
+            {/* Redes sociales */}
+            <div className="flex gap-4">
+              <a href="#" className="w-8 h-8 rounded-full bg-gray-800 flex items-center justify-center hover:bg-white hover:text-[#07101f] transition-colors"><svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg></a>
+              <a href="#" className="w-8 h-8 rounded-full bg-gray-800 flex items-center justify-center hover:bg-white hover:text-[#07101f] transition-colors"><svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"/></svg></a>
+            </div>
+          </div>
+
+          {/* Prácticas */}
+          <div>
+            <h4 className="text-white font-bold mb-6 text-sm tracking-widest uppercase">Prácticas</h4>
+            <ul className="space-y-3 text-sm">
+              <li><a href="#" className="hover:text-white transition">Derecho Corporativo</a></li>
+              <li><a href="#" className="hover:text-white transition">Contratación Estatal</a></li>
+              <li><a href="#" className="hover:text-white transition">Recursos Humanos</a></li>
+              <li><a href="#" className="hover:text-white transition">Derecho Civil</a></li>
+            </ul>
+          </div>
+
+          {/* Otros */}
+          <div>
+            <h4 className="text-white font-bold mb-6 text-sm tracking-widest uppercase">Otros</h4>
+            <ul className="space-y-3 text-sm">
+              <li><a href="#" className="hover:text-white transition">Nosotros</a></li>
+              <li><a href="#" className="hover:text-white transition">Socios</a></li>
+              <li><a href="#" className="hover:text-white transition">Casos de éxito</a></li>
+              <li><a href="#" className="hover:text-white transition">Trabaja con nosotros</a></li>
+            </ul>
+          </div>
+
+          {/* Contacto */}
+          <div>
+            <h4 className="text-white font-bold mb-6 text-sm tracking-widest uppercase">Contacto</h4>
+            <ul className="space-y-4 text-sm">
+              <li className="flex items-start gap-3">
+                <svg className="w-5 h-5 shrink-0 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                Av. Rivera Navarrete 501, Piso 18, San Isidro — Lima
+              </li>
+              <li className="flex items-center gap-3">
+                <svg className="w-5 h-5 shrink-0 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg>
+                +51 900 840 9300
+              </li>
+              <li className="flex items-center gap-3">
+                <svg className="w-5 h-5 shrink-0 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+                contacto@garpergroup.com
+              </li>
+            </ul>
+          </div>
+
+        </div>
+        
+        {/* Copyright */}
+        <div className="max-w-7xl mx-auto mt-16 pt-8 border-t border-gray-800 flex flex-col md:flex-row justify-between items-center gap-4 text-xs">
+          <p>© 2026 Garper Group S.A.C. RUC 205432890. Todos los derechos reservados.</p>
+          <div className="flex gap-6">
+            <a href="#" className="hover:text-white transition">Aviso de privacidad</a>
+            <a href="#" className="hover:text-white transition">Términos del servicio</a>
+            <a href="#" className="hover:text-white transition">Libro de Reclamaciones</a>
+          </div>
+        </div>
+      </footer>
     </div>
   );
 }
