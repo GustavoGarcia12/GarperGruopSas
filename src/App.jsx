@@ -1,23 +1,47 @@
-import React from 'react';
+import React, { useState } from 'react';
+import logoGarper from './assets/logo-garper.jpeg';
 
 function App() {
+  // --- INICIO CÓDIGO DE WHATSAPP ---
+  const [formData, setFormData] = useState({
+    nombre: '',
+    correo: '',
+    telefono: ''
+  });
+
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  const enviarWhatsApp = (e) => {
+    e.preventDefault();
+    
+    const { nombre, correo, telefono } = formData;
+    
+    const mensaje = `¡Hola Garper Group! Quiero agendar una asesoría inicial gratuita de 30 min.%0A%0A*Mis datos:*%0A👤 Nombre: ${nombre}%0A✉️ Correo: ${correo}%0A📱 Teléfono: ${telefono}`;
+    
+    // Tu número de WhatsApp de Colombia configurado
+    const numeroWhatsApp = "573044610505";
+    const url = `https://wa.me/${numeroWhatsApp}?text=${mensaje}`;
+    
+    window.open(url, '_blank');
+  };
+  // --- FIN CÓDIGO DE WHATSAPP ---
+
   return (
     <div className="min-h-screen bg-[#07101f] text-white font-sans">
-      
-      {/* 1. BARRA DE NAVEGACIÓN */}
+     {/* 1. BARRA DE NAVEGACIÓN */}
       <nav className="flex justify-between items-center px-10 py-6 border-b border-gray-800">
         <div className="flex items-center gap-3">
-          <div className="w-10 h-10 bg-white text-[#07101f] rounded-lg font-bold flex items-center justify-center text-xl">
-            G
-          </div>
-          <div>
-            <h1 className="text-xl font-bold tracking-wide">GARPER GROUP SAS</h1>
-            <p className="text-[9px] text-gray-400 tracking-[0.2em]">LEGAL • STATE • HR</p>
-          </div>
+          {/* Logo original convertido a blanco y transparente solo con CSS */}
+          <img 
+            src={logoGarper} 
+            alt="Garper Group SAS" 
+            className="h-24 w-auto scale-[2] invert mix-blend-screen object-contain" 
+          />
         </div>
         
         <div className="hidden md:flex gap-8 text-sm text-gray-300">
-          {/* Enlaces actualizados con los identificadores */}
           <a href="#servicios" className="hover:text-white transition">Servicios</a>
           <a href="#nosotros" className="hover:text-white transition">Nosotros</a>
           <a href="#planes" className="hover:text-white transition">Planes</a>
@@ -63,7 +87,7 @@ function App() {
         {/* Columna Derecha: Tarjeta de Formulario */}
         <div className="bg-white text-[#07101f] p-8 rounded-2xl shadow-2xl max-w-md ml-auto w-full relative">
           <div className="flex justify-between items-center mb-6">
-            <h3 className="text-xl font-bold">Aseroria Inicial</h3>
+            <h3 className="text-xl font-bold">Asesoria gratis</h3>
             <span className="bg-gray-100 text-xs px-3 py-1.5 rounded-full text-gray-600 font-bold border border-gray-200">
               30 min / Gratis
             </span>
@@ -73,26 +97,39 @@ function App() {
             Diagnóstico legal exprés con un socio senior.
           </p>
           
-          <form className="space-y-4">
+          {/* Formulario actualizado con la función onSubmit y variables de estado */}
+          <form onSubmit={enviarWhatsApp} className="space-y-4">
             <input 
               type="text" 
+              name="nombre"
+              value={formData.nombre}
+              onChange={handleChange}
+              required
               placeholder="Nombre completo" 
               className="w-full bg-gray-50 border border-gray-200 rounded-lg px-4 py-3.5 text-sm focus:outline-none focus:border-[#07101f] focus:ring-1 focus:ring-[#07101f] transition" 
             />
             <input 
               type="email" 
+              name="correo"
+              value={formData.correo}
+              onChange={handleChange}
+              required
               placeholder="Correo corporativo" 
               className="w-full bg-gray-50 border border-gray-200 rounded-lg px-4 py-3.5 text-sm focus:outline-none focus:border-[#07101f] focus:ring-1 focus:ring-[#07101f] transition" 
             />
 
             <input 
               type="tel" 
+              name="telefono"
+              value={formData.telefono}
+              onChange={handleChange}
+              required
               placeholder="Teléfono / Celular (ej. +57...)" 
               className="w-full bg-gray-50 border border-gray-200 rounded-lg px-4 py-3.5 text-sm focus:outline-none focus:border-[#07101f] focus:ring-1 focus:ring-[#07101f] transition" 
             />
 
             <button type="submit" className="w-full bg-[#07101f] text-white font-bold py-4 rounded-lg hover:bg-gray-800 transition mt-2">
-              Agendar Consulta
+              Agendar Asesoria
             </button>
           </form>
 
