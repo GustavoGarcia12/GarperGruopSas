@@ -1,3 +1,5 @@
+import React from 'react';
+
 function App() {
   return (
     <div className="min-h-screen bg-[#07101f] text-white font-sans">
@@ -15,11 +17,12 @@ function App() {
         </div>
         
         <div className="hidden md:flex gap-8 text-sm text-gray-300">
-          <a href="#" className="hover:text-white transition">Servicios</a>
-          <a href="#" className="hover:text-white transition">Nosotros</a>
-          <a href="#" className="hover:text-white transition">Planes</a>
-          <a href="#" className="hover:text-white transition">Casos de éxito</a>
-          <a href="#" className="hover:text-white transition">Contacto</a>
+          {/* Enlaces actualizados con los identificadores */}
+          <a href="#servicios" className="hover:text-white transition">Servicios</a>
+          <a href="#nosotros" className="hover:text-white transition">Nosotros</a>
+          <a href="#planes" className="hover:text-white transition">Planes</a>
+          <a href="#casos" className="hover:text-white transition">Casos de éxito</a>
+          <a href="#contacto" className="hover:text-white transition">Contacto</a>
         </div>
       </nav>
 
@@ -47,7 +50,6 @@ function App() {
               <p className="text-xs text-gray-400 mt-1">Casos corporativos ganados</p>
             </div>
             <div>
-              {/* Cambié S/ por $ para hacerlo neutral, puedes poner COP o la moneda que necesite tu cliente */}
               <p className="text-3xl font-bold">$ 2.4B</p>
               <p className="text-xs text-gray-400 mt-1">En licitaciones adjudicadas</p>
             </div>
@@ -129,8 +131,8 @@ function App() {
         </div>
       </div>
 
-      {/* 4. SECCIÓN DE SERVICIOS */}
-      <section className="bg-white text-[#07101f] py-24 px-10">
+      {/* 4. SECCIÓN DE SERVICIOS - ID agregado */}
+      <section id="servicios" className="bg-white text-[#07101f] py-24 px-10">
         <div className="max-w-7xl mx-auto">
           
           {/* Encabezado de la sección */}
@@ -244,6 +246,7 @@ function App() {
           </div>
         </div>
       </section>
+      
       {/* 5. BANNER LLAMADO A LA ACCIÓN (CTA) */}
       <section className="bg-[#07101f] text-white py-16 px-10 border-t border-b border-gray-800">
         <div className="max-w-7xl mx-auto flex flex-col lg:flex-row justify-between items-center gap-10">
@@ -268,8 +271,9 @@ function App() {
           
         </div>
       </section>
-      {/* 6. SECCIÓN DE PLANES Y HONORARIOS */}
-      <section className="bg-gray-50 text-[#07101f] py-24 px-10">
+
+      {/* 6. SECCIÓN DE PLANES Y HONORARIOS - ID agregado */}
+      <section id="planes" className="bg-gray-50 text-[#07101f] py-24 px-10">
         <div className="max-w-7xl mx-auto">
           
           {/* Encabezado de precios */}
@@ -365,8 +369,8 @@ function App() {
         </div>
       </section>
 
-      {/* 7. FOOTER (Pie de página) */}
-      <footer className="bg-[#07101f] text-gray-400 py-16 px-10 border-t border-gray-800">
+      {/* 7. FOOTER (Pie de página) - ID agregado */}
+      <footer id="contacto" className="bg-[#07101f] text-gray-400 py-16 px-10 border-t border-gray-800">
         <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
           
           {/* Logo y descripción */}
@@ -413,13 +417,10 @@ function App() {
           <div>
             <h4 className="text-white font-bold mb-6 text-sm tracking-widest uppercase">Contacto</h4>
             <ul className="space-y-4 text-sm">
-              <li className="flex items-start gap-3">
-                <svg className="w-5 h-5 shrink-0 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
-                Av. Rivera Navarrete 501, Piso 18, San Isidro — Lima
-              </li>
+              
               <li className="flex items-center gap-3">
                 <svg className="w-5 h-5 shrink-0 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg>
-                +51 900 840 9300
+                +57 3044610505
               </li>
               <li className="flex items-center gap-3">
                 <svg className="w-5 h-5 shrink-0 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
