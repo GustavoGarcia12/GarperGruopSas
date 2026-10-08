@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import logoGarper from './assets/logo-garper.jpeg';
 
-// --- DATOS DE LOS SERVICIOS PARA LA VENTANA MODAL ---
+// Datos de servicios
 const detallesServicios = {
   corporativo: {
     titulo: "Derecho Corporativo",
@@ -50,33 +50,41 @@ const detallesServicios = {
 };
 
 function App() {
-  // --- INICIO CÓDIGO DE WHATSAPP ---
   const [formData, setFormData] = useState({
     nombre: '',
     correo: '',
     telefono: ''
   });
+  
+  const [servicioActivo, setServicioActivo] = useState(null);
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
+  // WhatsApp - Formulario principal
   const enviarWhatsApp = (e) => {
     e.preventDefault();
     const { nombre, correo, telefono } = formData;
     const mensaje = `¡Hola Garper Group! Quiero agendar una asesoría inicial gratuita de 30 min.%0A%0A*Mis datos:*%0A👤 Nombre: ${nombre}%0A✉️ Correo: ${correo}%0A📱 Teléfono: ${telefono}`;
-    const numeroWhatsApp = "573044610505";
-    const url = `https://wa.me/${numeroWhatsApp}?text=${mensaje}`;
-    window.open(url, '_blank');
+    window.open(`https://wa.me/573044610505?text=${mensaje}`, '_blank');
   };
-  // --- FIN CÓDIGO DE WHATSAPP ---
 
-  // --- ESTADO PARA CONTROLAR LA VENTANA MODAL DE SERVICIOS ---
-  const [servicioActivo, setServicioActivo] = useState(null);
+  // WhatsApp - Licitaciones
+  const contactarLicitacion = () => {
+    const mensaje = "¡Hola Garper Group! Tengo una licitación en puerta y me interesa el diagnóstico exprés de 48 horas.";
+    window.open(`https://wa.me/573044610505?text=${mensaje}`, '_blank');
+  };
+
+  // WhatsApp - Planes
+  const elegirPlan = (nombrePlan) => {
+    const mensaje = `¡Hola Garper Group! Me gustaría recibir más información sobre el Plan ${nombrePlan} para mi empresa.`;
+    window.open(`https://wa.me/573044610505?text=${mensaje}`, '_blank');
+  };
 
   return (
     <div className="min-h-screen bg-[#07101f] text-white font-sans relative">
-     {/* 1. BARRA DE NAVEGACIÓN */}
+      {/* Navbar */}
       <nav className="flex justify-between items-center px-10 py-6 border-b border-gray-800">
         <div className="flex items-center gap-3">
           <img 
@@ -85,7 +93,6 @@ function App() {
             className="h-24 w-auto scale-[2] invert mix-blend-screen object-contain" 
           />
         </div>
-        
         <div className="hidden md:flex gap-8 text-sm text-gray-300">
           <a href="#servicios" className="hover:text-white transition">Servicios</a>
           <a href="#nosotros" className="hover:text-white transition">Nosotros</a>
@@ -95,19 +102,16 @@ function App() {
         </div>
       </nav>
 
-      {/* 2. HERO SECTION */}
+      {/* Hero Section */}
       <main className="px-10 py-20 max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-        
         <div className="space-y-8">
           <div className="flex items-center gap-3 text-sm text-gray-400 font-medium">
             <span className="w-2 h-2 bg-blue-500 rounded-full"></span>
             Colombia-Barranquilla
           </div>
-          
           <h2 className="text-5xl md:text-6xl font-bold leading-[1.1] tracking-tight">
             Soluciones <br /> empresariales <br /> integrales.
           </h2>
-          
           <p className="text-gray-400 text-lg max-w-md leading-relaxed">
             Gestion administrativa, tramites, asesorias, gestion humana y licitaciones. <br /> Blindamos tus operaciones con rigor jurídico y visión empresarial.
           </p>
@@ -127,6 +131,7 @@ function App() {
           </div>
         </div>
 
+        {/* Formulario */}
         <div className="bg-white text-[#07101f] p-8 rounded-2xl shadow-2xl max-w-md ml-auto w-full relative">
           <div className="flex justify-between items-center mb-6">
             <h3 className="text-xl font-bold">Asesoria gratis</h3>
@@ -134,11 +139,9 @@ function App() {
               30 min / Gratis
             </span>
           </div>
-          
           <p className="text-sm text-gray-500 mb-6 font-medium">
             Diagnóstico legal exprés con un socio senior.
           </p>
-          
           <form onSubmit={enviarWhatsApp} className="space-y-4">
             <input 
               type="text" 
@@ -171,16 +174,14 @@ function App() {
               Agendar Asesoria
             </button>
           </form>
-
           <p className="text-center text-xs text-gray-400 mt-6 flex items-center justify-center gap-2">
             <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path></svg>
             Tus datos están protegidos (Ley 1581)
           </p>
         </div>
-
       </main>
 
-      {/* 3. BANDA DE CREDENCIALES */}
+      {/* Credenciales */}
       <div className="bg-white text-[#07101f] py-6 px-10 border-b border-gray-100">
         <div className="max-w-7xl mx-auto flex flex-wrap justify-between items-center gap-6 text-sm font-semibold text-gray-700">
           <div className="flex items-center gap-4">
@@ -204,7 +205,7 @@ function App() {
         </div>
       </div>
 
-      {/* 4. SECCIÓN DE SERVICIOS */}
+      {/* Servicios */}
       <section id="servicios" className="bg-white text-[#07101f] py-24 px-10">
         <div className="max-w-7xl mx-auto">
           <div className="flex flex-col md:flex-row justify-between items-end gap-8 mb-16">
@@ -220,7 +221,6 @@ function App() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {/* Tarjeta 1 */}
             <div className="border border-gray-100 rounded-[2rem] p-8 shadow-sm hover:shadow-xl transition-all duration-300 group flex flex-col">
               <div className="w-14 h-14 bg-[#07101f] text-white rounded-full flex items-center justify-center mb-6 group-hover:bg-blue-700 transition-colors shadow-lg">
                 <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
@@ -232,13 +232,11 @@ function App() {
                 <li className="flex items-start gap-2"><svg className="w-4 h-4 text-blue-600 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" d="M5 13l4 4L19 7"></path></svg> Gobierno corporativo</li>
                 <li className="flex items-start gap-2"><svg className="w-4 h-4 text-blue-600 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" d="M5 13l4 4L19 7"></path></svg> Contratos marco</li>
               </ul>
-              {/* Botón que abre el modal pasándole el identificador 'corporativo' */}
               <button onClick={() => setServicioActivo('corporativo')} className="text-blue-700 font-bold text-sm flex items-center gap-2 hover:gap-3 transition-all text-left">
                 Explorar práctica <span>&rarr;</span>
               </button>
             </div>
 
-            {/* Tarjeta 2 */}
             <div className="border border-gray-100 rounded-[2rem] p-8 shadow-sm hover:shadow-xl transition-all duration-300 group flex flex-col">
               <div className="w-14 h-14 bg-[#07101f] text-white rounded-full flex items-center justify-center mb-6 group-hover:bg-blue-700 transition-colors shadow-lg">
                 <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
@@ -250,13 +248,11 @@ function App() {
                 <li className="flex items-start gap-2"><svg className="w-4 h-4 text-blue-600 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" d="M5 13l4 4L19 7"></path></svg> Impugnaciones OSCE</li>
                 <li className="flex items-start gap-2"><svg className="w-4 h-4 text-blue-600 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" d="M5 13l4 4L19 7"></path></svg> Arbitraje y JRD</li>
               </ul>
-              {/* Botón que abre el modal pasándole el identificador 'estatal' */}
               <button onClick={() => setServicioActivo('estatal')} className="text-blue-700 font-bold text-sm flex items-center gap-2 hover:gap-3 transition-all text-left">
                 Explorar práctica <span>&rarr;</span>
               </button>
             </div>
 
-            {/* Tarjeta 3 */}
             <div className="border border-gray-100 rounded-[2rem] p-8 shadow-sm hover:shadow-xl transition-all duration-300 group flex flex-col">
               <div className="w-14 h-14 bg-[#07101f] text-white rounded-full flex items-center justify-center mb-6 group-hover:bg-blue-700 transition-colors shadow-lg">
                 <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path></svg>
@@ -268,13 +264,11 @@ function App() {
                 <li className="flex items-start gap-2"><svg className="w-4 h-4 text-blue-600 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" d="M5 13l4 4L19 7"></path></svg> Negociación colectiva</li>
                 <li className="flex items-start gap-2"><svg className="w-4 h-4 text-blue-600 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" d="M5 13l4 4L19 7"></path></svg> SUNAFIL y planillas</li>
               </ul>
-              {/* Botón que abre el modal pasándole el identificador 'rrhh' */}
               <button onClick={() => setServicioActivo('rrhh')} className="text-blue-700 font-bold text-sm flex items-center gap-2 hover:gap-3 transition-all text-left">
                 Explorar práctica <span>&rarr;</span>
               </button>
             </div>
 
-            {/* Tarjeta 4 */}
             <div className="border border-gray-100 rounded-[2rem] p-8 shadow-sm hover:shadow-xl transition-all duration-300 group flex flex-col">
               <div className="w-14 h-14 bg-[#07101f] text-white rounded-full flex items-center justify-center mb-6 group-hover:bg-blue-700 transition-colors shadow-lg">
                 <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M3 6l3 1m0 0l-3 9a5.002 5.002 0 006.001 0M6 7l3 9M6 7l6-2m6 2l3-1m-3 1l-3 9a5.002 5.002 0 006.001 0M18 7l3 9m-3-9l-6-2m0-2v2m0 16V5m0 16H9m3 0h3"></path></svg>
@@ -286,7 +280,6 @@ function App() {
                 <li className="flex items-start gap-2"><svg className="w-4 h-4 text-blue-600 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" d="M5 13l4 4L19 7"></path></svg> Responsabilidad civil</li>
                 <li className="flex items-start gap-2"><svg className="w-4 h-4 text-blue-600 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" d="M5 13l4 4L19 7"></path></svg> Propiedad y saneamiento</li>
               </ul>
-              {/* Botón que abre el modal pasándole el identificador 'civil' */}
               <button onClick={() => setServicioActivo('civil')} className="text-blue-700 font-bold text-sm flex items-center gap-2 hover:gap-3 transition-all text-left">
                 Explorar práctica <span>&rarr;</span>
               </button>
@@ -295,7 +288,7 @@ function App() {
         </div>
       </section>
       
-      {/* 5. BANNER LLAMADO A LA ACCIÓN (CTA) */}
+      {/* CTA Licitaciones */}
       <section className="bg-[#07101f] text-white py-16 px-10 border-t border-b border-gray-800">
         <div className="max-w-7xl mx-auto flex flex-col lg:flex-row justify-between items-center gap-10">
           <div className="max-w-2xl text-center lg:text-left">
@@ -307,17 +300,17 @@ function App() {
             </p>
           </div>
           <div className="flex flex-col sm:flex-row gap-4 shrink-0 w-full sm:w-auto">
-            <button className="bg-white text-[#07101f] px-8 py-3.5 rounded-lg font-bold hover:bg-gray-200 transition shadow-lg w-full sm:w-auto">
+            <button onClick={contactarLicitacion} className="bg-white text-[#07101f] px-8 py-3.5 rounded-lg font-bold hover:bg-gray-200 transition shadow-lg w-full sm:w-auto">
               Agendar Consulta
             </button>
-            <button className="px-8 py-3.5 rounded-lg border border-gray-600 font-bold hover:bg-gray-800 transition w-full sm:w-auto">
+            <button onClick={contactarLicitacion} className="px-8 py-3.5 rounded-lg border border-gray-600 font-bold hover:bg-gray-800 transition w-full sm:w-auto">
               Hablar con un socio
             </button>
           </div>
         </div>
       </section>
 
-      {/* 6. SECCIÓN DE PLANES Y HONORARIOS */}
+      {/* Planes y Honorarios */}
       <section id="planes" className="bg-gray-50 text-[#07101f] py-24 px-10">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
@@ -331,7 +324,6 @@ function App() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-start max-w-5xl mx-auto">
-            {/* Plan Básico */}
             <div className="bg-white border border-gray-100 rounded-3xl p-8 shadow-sm hover:shadow-xl transition-all">
               <h3 className="text-xs font-bold tracking-[0.1em] uppercase text-gray-500 mb-4">Básico</h3>
               <div className="mb-4">
@@ -339,7 +331,7 @@ function App() {
                 <span className="text-gray-400 text-sm"> / mes</span>
               </div>
               <p className="text-sm text-gray-500 mb-8 h-10">Para emprendedores y pymes que inician su formalización.</p>
-              <button className="w-full bg-[#07101f] text-white font-bold py-3.5 rounded-xl hover:bg-gray-800 transition mb-8">
+              <button onClick={() => elegirPlan('Básico')} className="w-full bg-[#07101f] text-white font-bold py-3.5 rounded-xl hover:bg-gray-800 transition mb-8">
                 Elegir Básico
               </button>
               <ul className="space-y-4 text-sm font-medium text-gray-700">
@@ -350,7 +342,6 @@ function App() {
               </ul>
             </div>
 
-            {/* Plan Empresarial */}
             <div className="bg-[#07101f] text-white rounded-3xl p-8 shadow-2xl relative transform md:-translate-y-4 border border-gray-800">
               <div className="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-blue-600 text-white text-xs font-bold px-4 py-1.5 rounded-full tracking-wide">
                 Más solicitado
@@ -361,7 +352,7 @@ function App() {
                 <span className="text-gray-400 text-sm"> / mes</span>
               </div>
               <p className="text-sm text-gray-400 mb-8 h-10">Para empresas en crecimiento y contratistas del Estado.</p>
-              <button className="w-full bg-white text-[#07101f] font-bold py-3.5 rounded-xl hover:bg-gray-200 transition mb-8">
+              <button onClick={() => elegirPlan('Empresarial')} className="w-full bg-white text-[#07101f] font-bold py-3.5 rounded-xl hover:bg-gray-200 transition mb-8">
                 Agendar Consulta
               </button>
               <ul className="space-y-4 text-sm font-medium text-gray-300">
@@ -373,14 +364,13 @@ function App() {
               </ul>
             </div>
 
-            {/* Plan Corporativo */}
             <div className="bg-white border border-gray-100 rounded-3xl p-8 shadow-sm hover:shadow-xl transition-all">
               <h3 className="text-xs font-bold tracking-[0.1em] uppercase text-gray-500 mb-4">Corporativo</h3>
               <div className="mb-4">
                 <span className="text-4xl font-bold">A medida</span>
               </div>
               <p className="text-sm text-gray-500 mb-8 h-10">Para corporaciones y grupos con operaciones multisector.</p>
-              <button className="w-full bg-[#07101f] text-white font-bold py-3.5 rounded-xl hover:bg-gray-800 transition mb-8">
+              <button onClick={() => elegirPlan('Corporativo')} className="w-full bg-[#07101f] text-white font-bold py-3.5 rounded-xl hover:bg-gray-800 transition mb-8">
                 Contactar socio
               </button>
               <ul className="space-y-4 text-sm font-medium text-gray-700">
@@ -409,10 +399,9 @@ function App() {
         </div>
       </section>
 
-      {/* 7. FOOTER */}
+      {/* Footer */}
       <footer id="contacto" className="bg-[#07101f] text-gray-400 py-16 px-10 border-t border-gray-800">
         <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
-          
           <div>
             <div className="flex items-center gap-3 mb-6">
               <div className="w-8 h-8 bg-white text-[#07101f] rounded-lg font-bold flex items-center justify-center text-lg">
@@ -474,12 +463,11 @@ function App() {
         </div>
       </footer>
 
-      {/* --- VENTANA MODAL (POPUP) --- */}
+      {/* Ventana Modal */}
       {servicioActivo && (
         <div className="fixed inset-0 bg-black/60 z-50 flex items-center justify-center p-4 backdrop-blur-sm transition-all duration-300">
           <div className="bg-white text-[#07101f] rounded-[2rem] max-w-2xl w-full p-8 md:p-12 relative shadow-2xl animate-fade-in-up">
             
-            {/* Botón de cerrar (X) */}
             <button 
               onClick={() => setServicioActivo(null)}
               className="absolute top-6 right-6 text-gray-400 hover:text-[#07101f] transition bg-gray-100 hover:bg-gray-200 rounded-full p-2"
@@ -487,7 +475,6 @@ function App() {
               <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12"></path></svg>
             </button>
             
-            {/* Título de la Práctica */}
             <div className="flex items-center gap-4 mb-6">
               <div className="w-12 h-12 bg-blue-700 text-white rounded-full flex items-center justify-center shadow-lg shrink-0">
                  <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
@@ -513,19 +500,17 @@ function App() {
             <div className="flex justify-end pt-6 border-t border-gray-100">
               <button 
                 onClick={() => {
-                  setServicioActivo(null); // Cierra el modal
-                  document.getElementById('contacto').scrollIntoView({ behavior: 'smooth' }); // Te lleva al final si quieres contactar
+                  setServicioActivo(null);
+                  document.getElementById('contacto').scrollIntoView({ behavior: 'smooth' });
                 }}
                 className="bg-[#07101f] text-white font-bold py-3 px-8 rounded-xl hover:bg-gray-800 transition"
               >
                 Solicitar asesoría
               </button>
             </div>
-
           </div>
         </div>
       )}
-
     </div>
   );
 }
