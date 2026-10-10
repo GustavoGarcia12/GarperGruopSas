@@ -84,20 +84,22 @@ function App() {
 
   return (
     <div className="min-h-screen bg-[#07101f] text-white font-sans relative">
-      {/* Navbar */}
-      <nav className="flex justify-between items-center px-10 py-6 border-b border-gray-800">
-        <div className="flex items-center gap-3">
+      
+      {/* 1. BARRA DE NAVEGACIÓN */}
+      <nav className="sticky top-0 z-50 bg-[#07101f] flex justify-between items-center px-6 md:px-10 h-24 border-b border-gray-800 shadow-sm">
+        
+        {/* Contenedor ajustado con object-left en la imagen para forzar alineación izquierda */}
+        <div className="flex items-center h-full w-40 md:w-48 overflow-hidden relative">
           <img 
             src={logoGarper} 
             alt="Garper Group SAS" 
-            className="h-24 w-auto scale-[2] invert mix-blend-screen object-contain" 
+            className="h-full w-full scale-150 origin-left invert mix-blend-screen object-contain object-left" 
           />
         </div>
+        
         <div className="hidden md:flex gap-8 text-sm text-gray-300">
           <a href="#servicios" className="hover:text-white transition">Servicios</a>
-          <a href="#nosotros" className="hover:text-white transition">Nosotros</a>
           <a href="#planes" className="hover:text-white transition">Planes</a>
-          <a href="#casos" className="hover:text-white transition">Casos de éxito</a>
           <a href="#contacto" className="hover:text-white transition">Contacto</a>
         </div>
       </nav>
@@ -324,6 +326,7 @@ function App() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-start max-w-5xl mx-auto">
+            {/* Plan Básico */}
             <div className="bg-white border border-gray-100 rounded-3xl p-8 shadow-sm hover:shadow-xl transition-all">
               <h3 className="text-xs font-bold tracking-[0.1em] uppercase text-gray-500 mb-4">Básico</h3>
               <div className="mb-4">
@@ -342,6 +345,7 @@ function App() {
               </ul>
             </div>
 
+            {/* Plan Empresarial */}
             <div className="bg-[#07101f] text-white rounded-3xl p-8 shadow-2xl relative transform md:-translate-y-4 border border-gray-800">
               <div className="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-blue-600 text-white text-xs font-bold px-4 py-1.5 rounded-full tracking-wide">
                 Más solicitado
@@ -364,6 +368,7 @@ function App() {
               </ul>
             </div>
 
+            {/* Plan Corporativo */}
             <div className="bg-white border border-gray-100 rounded-3xl p-8 shadow-sm hover:shadow-xl transition-all">
               <h3 className="text-xs font-bold tracking-[0.1em] uppercase text-gray-500 mb-4">Corporativo</h3>
               <div className="mb-4">
@@ -402,6 +407,7 @@ function App() {
       {/* Footer */}
       <footer id="contacto" className="bg-[#07101f] text-gray-400 py-16 px-10 border-t border-gray-800">
         <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
+          
           <div>
             <div className="flex items-center gap-3 mb-6">
               <div className="w-8 h-8 bg-white text-[#07101f] rounded-lg font-bold flex items-center justify-center text-lg">
@@ -433,7 +439,6 @@ function App() {
             <ul className="space-y-3 text-sm">
               <li><a href="#" className="hover:text-white transition">Nosotros</a></li>
               <li><a href="#" className="hover:text-white transition">Socios</a></li>
-              <li><a href="#" className="hover:text-white transition">Casos de éxito</a></li>
               <li><a href="#" className="hover:text-white transition">Trabaja con nosotros</a></li>
             </ul>
           </div>
